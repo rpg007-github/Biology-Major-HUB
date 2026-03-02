@@ -243,9 +243,40 @@ body {
 .card:nth-child(7) { animation-delay: 0.3s; }
 .card:nth-child(8) { animation-delay: 0.35s; }
 .card:nth-child(9) { animation-delay: 0.4s; }
+
+/* ─── WCAG 2.1 AA: Visible focus indicators ─── */
+:focus-visible {
+  outline: 3px solid #005fcc !important;
+  outline-offset: 2px !important;
+}
+.tab-btn:focus-visible, .nav-btn:focus-visible {
+  outline: 3px solid #005fcc !important;
+  outline-offset: 2px !important;
+}
+/* ─── Skip link ─── */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: #005fcc;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0 0 6px 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 
 <!-- HERO -->
 <div class="hero">
@@ -260,19 +291,19 @@ body {
 </div>
 
 <!-- NAV -->
-<div class="nav-bar">
-  <button class="nav-btn active" onclick="showSection('sequence')">Course Sequence</button>
-  <button class="nav-btn" onclick="showSection('bio')">Biology</button>
-  <button class="nav-btn" onclick="showSection('chem')">Chemistry</button>
-  <button class="nav-btn" onclick="showSection('math')">Math &amp; Physics</button>
-  <button class="nav-btn" onclick="showSection('career')">Career Planning</button>
-  <button class="nav-btn" onclick="showSection('all')">All Resources</button>
+<div class="nav-bar" role="tablist" aria-label="Page sections">
+  <button role="tab" aria-selected="true" aria-controls="sec-sequence" class="nav-btn active" onclick="showSection('sequence')">Course Sequence</button>
+  <button role="tab" aria-selected="false" aria-controls="sec-bio" class="nav-btn" onclick="showSection('bio')">Biology</button>
+  <button role="tab" aria-selected="false" aria-controls="sec-chem" class="nav-btn" onclick="showSection('chem')">Chemistry</button>
+  <button role="tab" aria-selected="false" aria-controls="sec-math" class="nav-btn" onclick="showSection('math')">Math &amp; Physics</button>
+  <button role="tab" aria-selected="false" aria-controls="sec-career" class="nav-btn" onclick="showSection('career')">Career Planning</button>
+  <button role="tab" aria-selected="false" aria-controls="sec-all" class="nav-btn" onclick="showSection('all')">All Resources</button>
 </div>
 
-<div class="container">
+<div class="container" id="main-content" role="main">
 
 <!-- ========== COURSE SEQUENCE ========== -->
-<div class="guide-section active" id="sec-sequence">
+<div class="guide-section active" id="sec-sequence" role="tabpanel">
 
   <div class="section-header">
     <div class="section-tag" style="color:var(--accent);">Suggested Order</div>
@@ -319,7 +350,7 @@ body {
 </div>
 
 <!-- ========== BIOLOGY ========== -->
-<div class="guide-section" id="sec-bio">
+<div class="guide-section" id="sec-bio" role="tabpanel">
 
   <div class="section-header">
     <div class="section-tag" style="color:var(--teal);">Biology</div>
@@ -330,14 +361,14 @@ body {
   <div class="section-header" style="margin-top:2rem;"><h2 style="font-size:1.2rem;">Introductory Biology</h2></div>
   <div class="card-grid">
     <a href="https://rpg007-github.github.io/Biology-basics/" target="_blank" class="card bio">
-      <div class="card-icon bio">&#127793;</div>
+      <div class="card-icon bio"><span aria-hidden="true">&#127793;</span></div>
       <h3>Biology Basics (Bio I)</h3>
       <p>Scientific method, biological molecules, cell structure, membranes, transport, energy (photosynthesis and respiration), DNA replication, protein synthesis, cell division, genetics, evolution, and ecology.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
       <span class="card-arrow">&#8594;</span>
     </a>
     <a href="https://rpg007-github.github.io/Biology-II/" target="_blank" class="card bio">
-      <div class="card-icon bio">&#127795;</div>
+      <div class="card-icon bio"><span aria-hidden="true">&#127795;</span></div>
       <h3>Biology II</h3>
       <p>Animal physiology, plant biology, ecology, phylogenetics, and diversity of life. Builds on molecular and cellular foundations from Bio I.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
@@ -348,14 +379,14 @@ body {
   <div class="section-header" style="margin-top:2rem;"><h2 style="font-size:1.2rem;">Cell Biology</h2></div>
   <div class="card-grid">
     <a href="https://rpg007-github.github.io/Cell-Biology-basic/" target="_blank" class="card bio">
-      <div class="card-icon bio">&#128300;</div>
+      <div class="card-icon bio"><span aria-hidden="true">&#128300;</span></div>
       <h3>Cell Biology (Part 1)</h3>
       <p>Cell structure, organelles, membranes, endomembrane system, transport mechanisms, and cell communication.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
       <span class="card-arrow">&#8594;</span>
     </a>
     <a href="https://rpg007-github.github.io/Cell-Biology-basic-part-2/" target="_blank" class="card bio">
-      <div class="card-icon bio">&#9878;&#65039;</div>
+      <div class="card-icon bio"><span aria-hidden="true">&#9878;&#65039;</span></div>
       <h3>Cell Biology (Part 2)</h3>
       <p>Enzymes and kinetics, glycolysis, fermentation, aerobic respiration, photosynthesis, cytoskeletal systems, and cellular movement.</p>
       <div class="card-tags"><span class="tag tag-quiz">50 Questions</span><span class="tag tag-flash">50 Flashcards</span><span class="tag tag-sa">12 Short Answer</span></div>
@@ -366,21 +397,21 @@ body {
   <div class="section-header" style="margin-top:2rem;"><h2 style="font-size:1.2rem;">Genetics</h2></div>
   <div class="card-grid">
     <a href="https://rpg007-github.github.io/Genetics/" target="_blank" class="card bio">
-      <div class="card-icon bio">&#129516;</div>
+      <div class="card-icon bio"><span aria-hidden="true">&#129516;</span></div>
       <h3>Genetics</h3>
       <p>Mendelian genetics, inheritance patterns, pedigree analysis, chromosomal genetics, gene expression, DNA technology, and population genetics.</p>
       <div class="card-tags"><span class="tag tag-quiz">30 Questions</span><span class="tag tag-flash">58 Flashcards</span><span class="tag tag-sa">10 Short Answer</span></div>
       <span class="card-arrow">&#8594;</span>
     </a>
     <a href="https://rpg007-github.github.io/Genetics-part-2/" target="_blank" class="card bio">
-      <div class="card-icon bio">&#129516;</div>
+      <div class="card-icon bio"><span aria-hidden="true">&#129516;</span></div>
       <h3>Genetics Part 2</h3>
       <p>Continuation with additional depth on gene regulation, epigenetics, genomics, and advanced inheritance patterns.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
       <span class="card-arrow">&#8594;</span>
     </a>
     <a href="https://rpg007-github.github.io/Genetics-advanced/" target="_blank" class="card bio">
-      <div class="card-icon bio">&#129516;</div>
+      <div class="card-icon bio"><span aria-hidden="true">&#129516;</span></div>
       <h3>Advanced Genetics</h3>
       <p>Epigenetics, genomic architecture, quantitative genetics, advanced molecular mechanisms, and evolutionary genomics. Upper-division depth.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
@@ -391,28 +422,28 @@ body {
   <div class="section-header" style="margin-top:2rem;"><h2 style="font-size:1.2rem;">Labs &amp; Field Studies</h2></div>
   <div class="card-grid">
     <a href="https://rpg007-github.github.io/Biology-lab-basics/" target="_blank" class="card bio">
-      <div class="card-icon bio">&#129514;</div>
+      <div class="card-icon bio"><span aria-hidden="true">&#129514;</span></div>
       <h3>Biology Lab Basics</h3>
       <p>Fundamental lab skills: measurement, safety, microscope operation, solution preparation, data recording, and basic statistics.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
       <span class="card-arrow">&#8594;</span>
     </a>
     <a href="https://rpg007-github.github.io/Biology-LAB/" target="_blank" class="card bio">
-      <div class="card-icon bio">&#128300;</div>
+      <div class="card-icon bio"><span aria-hidden="true">&#128300;</span></div>
       <h3>Biology Lab</h3>
       <p>Lab techniques, microscopy, biochemistry experiments, enzyme kinetics, photosynthesis and respiration labs, mitosis and meiosis, DNA extraction, and ecological surveys.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
       <span class="card-arrow">&#8594;</span>
     </a>
     <a href="https://rpg007-github.github.io/Bio-II-lab/" target="_blank" class="card bio">
-      <div class="card-icon bio">&#128300;</div>
+      <div class="card-icon bio"><span aria-hidden="true">&#128300;</span></div>
       <h3>Biology II Lab</h3>
       <p>Advanced lab learning modules for Biology II courses.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
       <span class="card-arrow">&#8594;</span>
     </a>
     <a href="https://rpg007-github.github.io/Biodiversity/" target="_blank" class="card bio">
-      <div class="card-icon bio">&#127758;</div>
+      <div class="card-icon bio"><span aria-hidden="true">&#127758;</span></div>
       <h3>Biodiversity</h3>
       <p>Diversity of life, classification, and ecological relationships.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
@@ -423,14 +454,14 @@ body {
   <div class="section-header" style="margin-top:2rem;"><h2 style="font-size:1.2rem;">Focused Topics</h2></div>
   <div class="card-grid">
     <a href="https://rpg007-github.github.io/DNA-basics/" target="_blank" class="card bio">
-      <div class="card-icon bio">&#129516;</div>
+      <div class="card-icon bio"><span aria-hidden="true">&#129516;</span></div>
       <h3>DNA Basics</h3>
       <p>Focused deep dive on DNA structure, replication, base pairing, the central dogma, transcription, translation, and mutations.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
       <span class="card-arrow">&#8594;</span>
     </a>
     <a href="https://rpg007-github.github.io/Water-molecule-fundamentals/" target="_blank" class="card bio">
-      <div class="card-icon bio">&#128167;</div>
+      <div class="card-icon bio"><span aria-hidden="true">&#128167;</span></div>
       <h3>Water: The Molecule Behind Everything</h3>
       <p>Molecular structure, hydrogen bonding, emergent properties, ice density, pH and buffers, water in biological reactions.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
@@ -440,7 +471,7 @@ body {
 </div>
 
 <!-- ========== CHEMISTRY ========== -->
-<div class="guide-section" id="sec-chem">
+<div class="guide-section" id="sec-chem" role="tabpanel">
 
   <div class="section-header">
     <div class="section-tag" style="color:var(--amber);">Chemistry</div>
@@ -450,35 +481,35 @@ body {
 
   <div class="card-grid">
     <a href="https://rpg007-github.github.io/chemistry/" target="_blank" class="card chem">
-      <div class="card-icon chem">&#9878;&#65039;</div>
+      <div class="card-icon chem"><span aria-hidden="true">&#9878;&#65039;</span></div>
       <h3>General Chemistry I</h3>
       <p>Atomic structure, periodic trends, chemical bonding, Lewis structures, VSEPR theory, nomenclature, reaction types, stoichiometry, gas laws, solution chemistry, and introductory thermochemistry.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
       <span class="card-arrow">&#8594;</span>
     </a>
     <a href="https://rpg007-github.github.io/General-Chemistry-II/" target="_blank" class="card chem">
-      <div class="card-icon chem">&#9878;&#65039;</div>
+      <div class="card-icon chem"><span aria-hidden="true">&#9878;&#65039;</span></div>
       <h3>General Chemistry II</h3>
       <p>Kinetics, chemical equilibrium, acids and bases, buffers, solubility equilibria, thermodynamics, electrochemistry, nuclear chemistry, and coordination chemistry.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
       <span class="card-arrow">&#8594;</span>
     </a>
     <a href="https://rpg007-github.github.io/Organic-I/" target="_blank" class="card chem">
-      <div class="card-icon chem">&#9878;&#65039;</div>
+      <div class="card-icon chem"><span aria-hidden="true">&#9878;&#65039;</span></div>
       <h3>Organic Chemistry I</h3>
       <p>Organic chemistry fundamentals including structure, bonding, stereochemistry, and introductory reaction mechanisms.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
       <span class="card-arrow">&#8594;</span>
     </a>
     <a href="https://rpg007-github.github.io/Organic-II/" target="_blank" class="card chem">
-      <div class="card-icon chem">&#9878;&#65039;</div>
+      <div class="card-icon chem"><span aria-hidden="true">&#9878;&#65039;</span></div>
       <h3>Organic Chemistry II</h3>
       <p>Advanced organic chemistry: reaction mechanisms, synthesis strategies, spectroscopy, and functional group transformations.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
       <span class="card-arrow">&#8594;</span>
     </a>
     <a href="https://rpg007-github.github.io/Basic-Molarity-Osmolarity-Dilutions/" target="_blank" class="card chem">
-      <div class="card-icon chem">&#129514;</div>
+      <div class="card-icon chem"><span aria-hidden="true">&#129514;</span></div>
       <h3>Molarity, Osmolarity, and Dilutions</h3>
       <p>Concentration calculations: molarity, molality, osmolarity, dilution equations, percent solutions, and practical applications.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
@@ -488,7 +519,7 @@ body {
 </div>
 
 <!-- ========== MATH & PHYSICS ========== -->
-<div class="guide-section" id="sec-math">
+<div class="guide-section" id="sec-math" role="tabpanel">
 
   <div class="section-header">
     <div class="section-tag" style="color:var(--purple);">Math &amp; Physics</div>
@@ -498,14 +529,14 @@ body {
 
   <div class="card-grid">
     <a href="https://rpg007-github.github.io/College-Algebra/" target="_blank" class="card math">
-      <div class="card-icon math">&#128202;</div>
+      <div class="card-icon math"><span aria-hidden="true">&#128202;</span></div>
       <h3>College Algebra</h3>
       <p>Equations, functions and graphs, quadratic functions, exponential and logarithmic functions, polynomial and rational functions, domain and range, transformations, and inverse functions.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
       <span class="card-arrow">&#8594;</span>
     </a>
     <a href="https://rpg007-github.github.io/Physics-I-basics/" target="_blank" class="card physics">
-      <div class="card-icon physics">&#9889;</div>
+      <div class="card-icon physics"><span aria-hidden="true">&#9889;</span></div>
       <h3>Physics I Basics</h3>
       <p>Mechanics, kinematics, Newton's laws, work and energy, momentum, rotational motion, and introductory thermodynamics.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
@@ -515,7 +546,7 @@ body {
 </div>
 
 <!-- ========== CAREER ========== -->
-<div class="guide-section" id="sec-career">
+<div class="guide-section" id="sec-career" role="tabpanel">
 
   <div class="section-header">
     <div class="section-tag" style="color:var(--green);">Career Planning</div>
@@ -525,14 +556,14 @@ body {
 
   <div class="card-grid">
     <a href="https://rpg007-github.github.io/Finding-YOUR-Path/" target="_blank" class="card career">
-      <div class="card-icon career">&#128204;</div>
+      <div class="card-icon career"><span aria-hidden="true">&#128204;</span></div>
       <h3>Finding YOUR Path</h3>
       <p>An interactive guide for students exploring MD, DO, PA, and biomedical graduate school. Real admissions data, honest advice, and actionable planning from a faculty perspective.</p>
       <div class="card-tags"><span class="tag tag-guide">Career Planning</span><span class="tag tag-interactive">Interactive</span></div>
       <span class="card-arrow">&#8594;</span>
     </a>
     <a href="https://rpg007-github.github.io/Getting-better/" target="_blank" class="card career">
-      <div class="card-icon career">&#127793;</div>
+      <div class="card-icon career"><span aria-hidden="true">&#127793;</span></div>
       <h3>Getting Better</h3>
       <p>Evidence-based study skills, managing anxiety, social confidence, digital wellness, and personal accountability. Useful at any stage of your degree.</p>
       <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-interactive">Reflective Writing</span></div>
@@ -542,7 +573,7 @@ body {
 </div>
 
 <!-- ========== ALL ========== -->
-<div class="guide-section" id="sec-all">
+<div class="guide-section" id="sec-all" role="tabpanel">
 
   <div class="section-header">
     <div class="section-tag" style="color:var(--accent);">Complete Index</div>
