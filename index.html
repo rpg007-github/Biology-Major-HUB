@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Biology Major Hub | Free Study References — Foundations: Closing the Gap</title>
-<meta name="description" content="Free, interactive study guides for biology majors and pre-health students. Covers biology, chemistry, math, physics, MCAT prep, and student success. Quizzes, flashcards, and worked examples throughout.">
+<meta name="description" content="Free interactive study guides for biology majors and pre-health students. Biology, chemistry, math, physics, and MCAT prep. Quizzes, flashcards, and worked examples built in.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0f1117; --bg2:#161821; --bg3:#1c1f2b; --surface:#222536; --surface2:#2a2d42;
+  --bg:#0f1117; --bg2:#161821; --bg3:#1c1f2b; --surface:#222536;
   --border:#333654; --border-lt:#2a2d48;
   --text:#e8e6f0; --text-soft:#a0a0b8; --text-dim:#6c6c88;
   --teal:#5ce0d6; --teal-glow:rgba(92,224,214,.12);
@@ -19,30 +19,18 @@
   --blue:#6c8cff; --blue-glow:rgba(108,140,255,.12);
   --pink:#ff7eb3; --pink-glow:rgba(255,126,179,.12);
   --radius:12px; --radius-sm:8px;
-  --shadow:0 2px 16px rgba(0,0,0,.35);
-  --shadow-hover:0 8px 32px rgba(0,0,0,.45);
+  --shadow:0 2px 16px rgba(0,0,0,.35); --shadow-hover:0 8px 32px rgba(0,0,0,.45);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;font-size:16px;min-height:100vh}
-
-/* ── SKIP + FOCUS ── */
 .skip-link{position:absolute;top:-100px;left:1rem;background:#005fcc;color:#fff;padding:.6rem 1.2rem;border-radius:0 0 6px 6px;font-weight:700;font-size:.95rem;text-decoration:none;z-index:9999;transition:top .2s}
 .skip-link:focus{top:0}
 :focus-visible{outline:3px solid var(--teal) !important;outline-offset:3px !important}
-
-/* ── REDUCED MOTION ── */
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
-}
-
-/* ── DISCLAIMER BANNER ── */
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}}
 .disclaimer-banner{background:#1a1506;border-bottom:2px solid var(--amber);padding:.7rem 1.5rem;text-align:center;font-size:.82rem;color:#ccc09a;line-height:1.5}
 .disclaimer-banner strong{color:var(--amber)}
 .disclaimer-banner a{color:var(--amber);text-decoration:underline}
-
-/* ── HERO ── */
 .hero{position:relative;padding:4.5rem 2rem 3.5rem;text-align:center;overflow:hidden;background:linear-gradient(155deg,#0f1117 0%,#141d28 45%,#162230 70%,#0f1117 100%)}
 .hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(92,224,214,.07) 0%,transparent 65%);pointer-events:none}
 .hero-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;background:var(--teal-glow);border:1px solid rgba(92,224,214,.22);color:var(--teal);padding:.3rem .9rem;border-radius:20px;margin-bottom:1.25rem;position:relative}
@@ -53,27 +41,19 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--tex
 .hero-stat{text-align:center}
 .hero-stat-val{font-family:'Crimson Pro',serif;font-size:1.9rem;font-weight:700;color:var(--teal)}
 .hero-stat-label{font-size:.75rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em}
-
-/* ── STICKY NAV ── */
 nav.nav-bar{position:sticky;top:0;z-index:100;background:rgba(15,17,23,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border-lt);padding:.6rem 1rem;display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap}
 .nav-btn{font-family:'Source Sans 3',sans-serif;font-size:.82rem;font-weight:600;padding:.4rem .95rem;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--text-soft);cursor:pointer;transition:all .18s;white-space:nowrap;line-height:1}
 .nav-btn:hover{color:var(--text);background:var(--bg3)}
 .nav-btn.active{color:var(--teal);background:var(--teal-glow);border-color:rgba(92,224,214,.22)}
 .nav-btn .nav-icon{margin-right:.3rem;font-style:normal}
-
-/* ── CONTAINER ── */
 .container{max-width:1100px;margin:0 auto;padding:2rem 1.5rem 5rem}
 .guide-section{display:none}
 .guide-section.active{display:block}
-
-/* ── SECTION HEADERS ── */
 .sec-hd{margin:2.5rem 0 1.25rem;padding-bottom:.6rem;border-bottom:1px solid var(--border-lt)}
 .sec-hd:first-child{margin-top:0}
 .sec-tag{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.3rem}
 .sec-hd h2{font-family:'Crimson Pro',serif;font-size:1.55rem;font-weight:700}
 .sec-hd p{color:var(--text-soft);font-size:.95rem;margin-top:.3rem;line-height:1.7;max-width:750px}
-
-/* ── CARDS ── */
 .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;margin-bottom:1.25rem}
 .card{background:var(--surface);border:1px solid var(--border-lt);border-radius:var(--radius);padding:1.4rem 1.4rem 3rem;transition:all .22s ease;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:block}
 .card::after{content:'→';position:absolute;bottom:1.1rem;right:1.2rem;font-size:1rem;color:var(--text-dim);transition:all .2s}
@@ -87,7 +67,6 @@ nav.nav-bar{position:sticky;top:0;z-index:100;background:rgba(15,17,23,.94);back
 .card.physics::before{background:linear-gradient(90deg,var(--teal),var(--blue))}
 .card.career::before{background:linear-gradient(90deg,var(--green),var(--teal))}
 .card.mcat::before{background:linear-gradient(90deg,var(--pink),var(--purple))}
-.card.skills::before{background:linear-gradient(90deg,var(--amber),var(--purple))}
 .card h3{font-family:'Crimson Pro',serif;font-size:1.1rem;font-weight:700;margin-bottom:.35rem;line-height:1.3}
 .card p{font-size:.86rem;color:var(--text-soft);line-height:1.65;margin-bottom:.6rem}
 .card-tags{display:flex;flex-wrap:wrap;gap:.35rem}
@@ -97,20 +76,15 @@ nav.nav-bar{position:sticky;top:0;z-index:100;background:rgba(15,17,23,.94);back
 .tag-sa{background:var(--purple-glow);color:var(--purple)}
 .tag-tool{background:var(--teal-glow);color:var(--teal)}
 .tag-new{background:rgba(255,126,179,.15);color:var(--pink)}
-
-/* ── LEVEL BADGE ── */
 .lv{font-family:'JetBrains Mono',monospace;font-size:.6rem;padding:.18rem .5rem;border-radius:4px;letter-spacing:.04em;vertical-align:middle;margin-left:.5rem}
 .lv-intro{background:var(--green-glow);color:var(--green)}
 .lv-core{background:var(--teal-glow);color:var(--teal)}
 .lv-upper{background:var(--purple-glow);color:var(--purple)}
-
-/* ── INFO BOXES ── */
 .tip-box{background:rgba(255,198,109,.07);border:1px solid rgba(255,198,109,.2);border-left:4px solid var(--amber);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:1rem 1.2rem;margin:1.2rem 0;font-size:.9rem;color:var(--text-soft);line-height:1.65}
 .tip-box strong{color:var(--amber)}
 .info-box{background:rgba(92,224,214,.05);border:1px solid rgba(92,224,214,.18);border-left:4px solid var(--teal);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:1rem 1.2rem;margin:1.2rem 0;font-size:.9rem;color:var(--text-soft);line-height:1.65}
 .info-box strong{color:var(--teal)}
-
-/* ── HOW-TO BOX ── */
+.info-box a{color:var(--teal);text-decoration:underline;text-underline-offset:2px}
 .how-box{background:var(--bg3);border:1px solid rgba(92,224,214,.18);border-left:4px solid var(--teal);border-radius:0 var(--radius) var(--radius) 0;padding:1.4rem 1.8rem;margin-bottom:2rem}
 .how-box h3{font-family:'Crimson Pro',serif;font-size:1.1rem;font-weight:700;color:var(--teal);margin-bottom:.85rem}
 .how-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.85rem}
@@ -118,8 +92,6 @@ nav.nav-bar{position:sticky;top:0;z-index:100;background:rgba(15,17,23,.94);back
 .how-num{background:var(--teal);color:#0f1117;font-weight:800;font-size:.75rem;min-width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.15rem}
 .how-text{font-size:.88rem;color:var(--text-soft);line-height:1.6}
 .how-text strong{color:var(--text)}
-
-/* ── WORKED EXAMPLES ── */
 .worked{background:#1c2a22;border:1px solid #2e5040;border-left:4px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:1.2rem 1.4rem;margin:1.4rem 0}
 .worked-hd{color:var(--green);font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.6rem}
 .worked-prompt{color:#c0d8cc;font-size:.95rem;margin-bottom:.9rem;background:rgba(0,0,0,.3);border-radius:8px;padding:.7rem 1rem;border:1px solid #2e5040;line-height:1.7}
@@ -128,8 +100,6 @@ nav.nav-bar{position:sticky;top:0;z-index:100;background:rgba(15,17,23,.94);back
 .st{color:#c8e8d8;font-size:.94rem;line-height:1.7}
 .st strong{color:var(--green)}
 .worked-ans{margin-top:.9rem;padding:.75rem 1rem;background:rgba(92,224,160,.1);border-radius:8px;border-left:3px solid var(--green);font-size:.92rem;color:#7ee8b8;font-weight:700}
-
-/* ── YEAR TRACK CARDS ── */
 .track-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-bottom:1.5rem}
 .track{background:var(--surface);border:1px solid var(--border-lt);border-radius:var(--radius);padding:1.4rem}
 .track-year{font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);margin-bottom:.4rem}
@@ -140,35 +110,22 @@ nav.nav-bar{position:sticky;top:0;z-index:100;background:rgba(15,17,23,.94);back
 .track-list li.bio::before{background:var(--teal)}
 .track-list li.chem::before{background:var(--amber)}
 .track-list li.math::before{background:var(--purple)}
-.track-list li.skills::before{background:var(--green)}
 .track-list a{color:inherit;text-decoration:underline;text-decoration-color:rgba(255,255,255,.2);text-underline-offset:2px;transition:color .15s}
 .track-list li.bio a:hover{color:var(--teal)}
 .track-list li.chem a:hover{color:var(--amber)}
 .track-list li.math a:hover{color:var(--purple)}
-.track-list li.skills a:hover{color:var(--green)}
-
-/* ── HUB LINKS (OTHER HUBS) ── */
 .hub-links-row{display:flex;flex-wrap:wrap;gap:.75rem;margin:1.25rem 0}
 .hub-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.88rem;font-weight:600;text-decoration:none;padding:.55rem 1.2rem;border-radius:8px;transition:all .2s;white-space:nowrap}
 .hub-link:hover{transform:translateY(-1px)}
-.hub-link.student{color:var(--green);border:1px solid rgba(92,224,160,.25);background:rgba(92,224,160,.08)}
-.hub-link.student:hover{background:rgba(92,224,160,.16)}
 .hub-link.mcat-h{color:var(--pink);border:1px solid rgba(255,126,179,.25);background:rgba(255,126,179,.08)}
 .hub-link.mcat-h:hover{background:rgba(255,126,179,.16)}
 .hub-link.college-h{color:var(--amber);border:1px solid rgba(255,198,109,.25);background:rgba(255,198,109,.08)}
 .hub-link.college-h:hover{background:rgba(255,198,109,.16)}
-
-/* ── FOOTER ── */
 .footer{text-align:center;padding:2rem 1.5rem;color:var(--text-dim);font-size:.78rem;border-top:1px solid var(--border-lt);margin-top:2rem}
-.footer a{color:var(--text-dim);text-decoration:underline}
-
-/* ── FULL DISCLAIMER BLOCK ── */
 .full-disclaimer{background:#13110a;border:1px solid rgba(255,198,109,.25);border-left:4px solid var(--amber);border-radius:0 var(--radius) var(--radius) 0;padding:1.4rem 1.8rem;margin:2rem 0;font-size:.86rem;color:#b8a880;line-height:1.75}
 .full-disclaimer h3{font-family:'Crimson Pro',serif;font-size:1.05rem;font-weight:700;color:var(--amber);margin-bottom:.75rem}
 .full-disclaimer p{margin-bottom:.65rem}
 .full-disclaimer p:last-child{margin-bottom:0}
-
-/* ── RESPONSIVE ── */
 @media(max-width:700px){
   .hero{padding:3.5rem 1.25rem 3rem}
   .container{padding:1.25rem 1rem 3rem}
@@ -178,7 +135,6 @@ nav.nav-bar{position:sticky;top:0;z-index:100;background:rgba(15,17,23,.94);back
   .hub-links-row{flex-direction:column}
   .how-grid{grid-template-columns:1fr}
 }
-
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .card{animation:fadeUp .35s ease both}
 .card:nth-child(2){animation-delay:.04s}
@@ -191,85 +147,62 @@ nav.nav-bar{position:sticky;top:0;z-index:100;background:rgba(15,17,23,.94);back
 </style>
 </head>
 <body>
-
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<!-- DISCLAIMER BANNER -->
-<div class="disclaimer-banner" role="note" aria-label="Important notice about these study materials">
-  <strong>⚠ Free supplemental study aids only.</strong> Not a substitute for your textbooks, course materials, or instructor guidance. Always verify information against official course materials.
+<div class="disclaimer-banner" role="note" aria-label="Important notice">
+  <strong>⚠ Free supplemental study aids only.</strong> Not a substitute for your textbooks, course materials, or instructor guidance.
   <a href="#full-disclaimer">Read full disclaimer ↓</a>
 </div>
 
-<!-- HERO -->
 <header role="banner">
   <div class="hero">
     <div class="hero-badge" aria-hidden="true">Biology &amp; Pre-Health Sciences</div>
     <h1><span class="hl">Biology Major</span> Hub</h1>
-    <p class="hero-sub">Free interactive study guides for every course in your biology degree — from Bio I through Advanced Genetics, Organic Chemistry, MCAT prep, and beyond. Quizzes, flashcards, and worked examples built in.</p>
+    <p class="hero-sub">Free interactive study guides for every course in your biology degree — from Bio I through Advanced Genetics, Organic Chemistry, and MCAT prep. Quizzes, flashcards, and worked examples built in.</p>
     <div class="hero-stats" aria-label="Hub overview">
-      <div class="hero-stat"><div class="hero-stat-val" aria-label="46 study guides">46</div><div class="hero-stat-label">Study Guides</div></div>
-      <div class="hero-stat"><div class="hero-stat-val" aria-label="8 subject areas">8</div><div class="hero-stat-label">Subject Areas</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">35+</div><div class="hero-stat-label">Study Guides</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">5</div><div class="hero-stat-label">Subject Areas</div></div>
       <div class="hero-stat"><div class="hero-stat-val">Free</div><div class="hero-stat-label">Always</div></div>
     </div>
   </div>
 </header>
 
-<!-- NAVIGATION TABS -->
 <nav class="nav-bar" role="tablist" aria-label="Browse by subject area">
   <button role="tab" class="nav-btn active" id="tab-start" aria-selected="true" aria-controls="sec-start" onclick="show('start',this)"><i class="nav-icon" aria-hidden="true">🗺</i>Start Here</button>
   <button role="tab" class="nav-btn" id="tab-bio" aria-selected="false" aria-controls="sec-bio" onclick="show('bio',this)" tabindex="-1"><i class="nav-icon" aria-hidden="true">🧬</i>Biology</button>
   <button role="tab" class="nav-btn" id="tab-chem" aria-selected="false" aria-controls="sec-chem" onclick="show('chem',this)" tabindex="-1"><i class="nav-icon" aria-hidden="true">⚗️</i>Chemistry</button>
   <button role="tab" class="nav-btn" id="tab-math" aria-selected="false" aria-controls="sec-math" onclick="show('math',this)" tabindex="-1"><i class="nav-icon" aria-hidden="true">📐</i>Math &amp; Physics</button>
   <button role="tab" class="nav-btn" id="tab-mcat" aria-selected="false" aria-controls="sec-mcat" onclick="show('mcat',this)" tabindex="-1"><i class="nav-icon" aria-hidden="true">🎯</i>MCAT Prep</button>
-  <button role="tab" class="nav-btn" id="tab-skills" aria-selected="false" aria-controls="sec-skills" onclick="show('skills',this)" tabindex="-1"><i class="nav-icon" aria-hidden="true">⭐</i>Student Skills</button>
-  <button role="tab" class="nav-btn" id="tab-all" aria-selected="false" aria-controls="sec-all" onclick="show('all',this)" tabindex="-1"><i class="nav-icon" aria-hidden="true">📋</i>All Guides</button>
 </nav>
 
 <main class="container" id="main-content" tabindex="-1">
 
-<!-- ========== START HERE ========== -->
+<!-- START HERE -->
 <section class="guide-section active" id="sec-start" role="tabpanel" aria-labelledby="tab-start">
-
   <div class="sec-hd">
     <div class="sec-tag" style="color:var(--teal)">Welcome</div>
     <h2>Start Here — How to Use This Hub</h2>
     <p>Everything is free. Everything opens in a new tab. Pick a subject from the tabs above, or follow the suggested year-by-year path below.</p>
   </div>
 
-  <div class="how-box" role="note" aria-label="How to use this hub">
+  <div class="how-box" role="note">
     <h3>🎓 Four Steps to Get the Most Out of This Hub</h3>
     <div class="how-grid">
-      <div class="how-step">
-        <div class="how-num" aria-hidden="true">1</div>
-        <div class="how-text"><strong>Pick your tab above</strong> to browse by subject (Biology, Chemistry, Math, MCAT, Student Skills) or use "All Guides" to see everything.</div>
-      </div>
-      <div class="how-step">
-        <div class="how-num" aria-hidden="true">2</div>
-        <div class="how-text"><strong>Click any card</strong> to open that study guide in a new tab. Each guide has quizzes, flashcards, and practice questions built in — no account needed.</div>
-      </div>
-      <div class="how-step">
-        <div class="how-num" aria-hidden="true">3</div>
-        <div class="how-text"><strong>Use the Year Track below</strong> if you are not sure where to start. It follows the typical biology degree sequence.</div>
-      </div>
-      <div class="how-step">
-        <div class="how-num" aria-hidden="true">4</div>
-        <div class="how-text"><strong>Check Student Skills</strong> for study strategies, note-taking, and career planning. A strong GPA requires more than just content knowledge.</div>
-      </div>
+      <div class="how-step"><div class="how-num" aria-hidden="true">1</div><div class="how-text"><strong>Pick your tab above</strong> to browse by subject — Biology, Chemistry, Math &amp; Physics, or MCAT Prep.</div></div>
+      <div class="how-step"><div class="how-num" aria-hidden="true">2</div><div class="how-text"><strong>Click any card</strong> to open that guide in a new tab. Each has quizzes, flashcards, and practice questions built in — no account needed.</div></div>
+      <div class="how-step"><div class="how-num" aria-hidden="true">3</div><div class="how-text"><strong>Use the Year Track below</strong> if you are not sure where to start. It follows the typical biology degree sequence.</div></div>
+      <div class="how-step"><div class="how-num" aria-hidden="true">4</div><div class="how-text"><strong>Struggling with college itself?</strong> Visit the <a href="https://rpg007-github.github.io/rpg007-github/College-Success-Hub/" target="_blank" rel="noopener" style="color:var(--amber);text-decoration:underline">College Success Hub</a> for study skills, life skills, and career direction.</div></div>
     </div>
   </div>
 
-  <!-- OTHER HUBS -->
-  <div class="info-box" role="note" aria-label="Other available hubs">
-    <strong>Also available — related hubs:</strong>
+  <div class="info-box" role="note">
+    <strong>Other hubs in this series:</strong>
     <div class="hub-links-row">
-      <a href="https://rpg007-github.github.io/rpg007-github/Student-HUB/" target="_blank" rel="noopener" class="hub-link student" aria-label="Student Hub — general non-major resources, opens in new tab">🌿 Student Hub →</a>
-      <a href="https://rpg007-github.github.io/rpg007-github/MCAT-HUB/" target="_blank" rel="noopener" class="hub-link mcat-h" aria-label="MCAT Prep Hub, opens in new tab">🎯 MCAT Prep Hub →</a>
-      <a href="https://rpg007-github.github.io/rpg007-github/College-Success-Hub/" target="_blank" rel="noopener" class="hub-link college-h" aria-label="College Success Hub, opens in new tab">⭐ College Success Hub →</a>
-      <a href="https://rpg007-github.github.io/rpg007-github/Biology-Major-HUB/" target="_blank" rel="noopener" class="hub-link student" aria-label="Biology Major Hub (alternate), opens in new tab">🧬 Biology Major Hub →</a>
+      <a href="https://rpg007-github.github.io/rpg007-github/MCAT-HUB/" target="_blank" rel="noopener" class="hub-link mcat-h" aria-label="MCAT Prep Hub — opens in new tab">🎯 MCAT Prep Hub →</a>
+      <a href="https://rpg007-github.github.io/rpg007-github/College-Success-Hub/" target="_blank" rel="noopener" class="hub-link college-h" aria-label="College Success Hub — opens in new tab">⭐ College Success Hub →</a>
     </div>
   </div>
 
-  <!-- YEAR TRACK -->
   <div class="sec-hd" style="margin-top:2rem">
     <div class="sec-tag" style="color:var(--green)">Suggested Path</div>
     <h2>Year-by-Year Course Track</h2>
@@ -277,22 +210,20 @@ nav.nav-bar{position:sticky;top:0;z-index:100;background:rgba(15,17,23,.94);back
   </div>
 
   <div class="track-grid">
-    <div class="track" aria-label="Year 1 foundational courses">
+    <div class="track" aria-label="Year 1">
       <div class="track-year">Year 1</div>
       <h4>🌱 Foundations</h4>
       <ul class="track-list" role="list">
         <li class="bio"><a href="https://rpg007-github.github.io/rpg007-github/Biology-basics/" target="_blank" rel="noopener">Biology Basics (Bio I)</a></li>
-        <li class="bio"><a href="https://rpg007-github.github.io/rpg007-github/Biology-for-non-majors/" target="_blank" rel="noopener">Biology for Non-Majors</a> <em style="font-size:.78rem;color:var(--text-dim)">(if applicable)</em></li>
         <li class="bio"><a href="https://rpg007-github.github.io/rpg007-github/Biology-LAB/" target="_blank" rel="noopener">Biology Lab</a></li>
         <li class="bio"><a href="https://rpg007-github.github.io/rpg007-github/Biology-lab-basics/" target="_blank" rel="noopener">Biology Lab Basics</a></li>
         <li class="chem"><a href="https://rpg007-github.github.io/rpg007-github/chemistry/" target="_blank" rel="noopener">General Chemistry I</a></li>
         <li class="chem"><a href="https://rpg007-github.github.io/rpg007-github/Basic-Molarity-Osmolarity-Dilutions/" target="_blank" rel="noopener">Molarity, Osmolarity &amp; Dilutions</a></li>
         <li class="math"><a href="https://rpg007-github.github.io/rpg007-github/College-Algebra/" target="_blank" rel="noopener">College Algebra</a></li>
         <li class="math"><a href="https://rpg007-github.github.io/rpg007-github/Math-Fluency/" target="_blank" rel="noopener">Math Fluency</a></li>
-        <li class="skills"><a href="https://rpg007-github.github.io/rpg007-github/Finding-your-way-in-College/" target="_blank" rel="noopener">Finding Your Way in College</a></li>
       </ul>
     </div>
-    <div class="track" aria-label="Year 2 core biology courses">
+    <div class="track" aria-label="Year 2">
       <div class="track-year">Year 2</div>
       <h4>🔬 Core Biology</h4>
       <ul class="track-list" role="list">
@@ -308,7 +239,7 @@ nav.nav-bar{position:sticky;top:0;z-index:100;background:rgba(15,17,23,.94);back
         <li class="math"><a href="https://rpg007-github.github.io/rpg007-github/Trigonometry/" target="_blank" rel="noopener">Trigonometry</a></li>
       </ul>
     </div>
-    <div class="track" aria-label="Year 3 upper division courses">
+    <div class="track" aria-label="Year 3">
       <div class="track-year">Year 3</div>
       <h4>🧪 Upper Division</h4>
       <ul class="track-list" role="list">
@@ -321,221 +252,112 @@ nav.nav-bar{position:sticky;top:0;z-index:100;background:rgba(15,17,23,.94);back
         <li class="bio"><a href="https://rpg007-github.github.io/rpg007-github/Stats-Biostats/" target="_blank" rel="noopener">Statistics &amp; Biostatistics</a></li>
       </ul>
     </div>
-    <div class="track" aria-label="Year 4 advanced and MCAT prep">
+    <div class="track" aria-label="Year 4 Pre-Med">
       <div class="track-year">Year 4 / Pre-Med Track</div>
       <h4>🎯 Advanced &amp; MCAT</h4>
       <ul class="track-list" role="list">
         <li class="bio"><a href="https://rpg007-github.github.io/rpg007-github/Genetics-advanced/" target="_blank" rel="noopener">Advanced Genetics</a></li>
         <li class="bio"><a href="https://rpg007-github.github.io/rpg007-github/MCAT-disease-pathways/" target="_blank" rel="noopener">MCAT Disease Pathways</a></li>
-        <li class="bio"><a href="https://rpg007-github.github.io/rpg007-github/MCAT-Psychology/" target="_blank" rel="noopener">MCAT Psychology</a></li>
-        <li class="bio"><a href="https://rpg007-github.github.io/rpg007-github/MCAT-Preparation/" target="_blank" rel="noopener">MCAT Preparation</a></li>
+        <li class="bio"><a href="https://rpg007-github.github.io/rpg007-github/MCAT-Psychology/" target="_blank" rel="noopener">MCAT Psychology &amp; Sociology</a></li>
         <li class="bio"><a href="https://rpg007-github.github.io/rpg007-github/MCAT-prep-adaptive/" target="_blank" rel="noopener">MCAT Adaptive Practice</a></li>
-        <li class="bio"><a href="https://rpg007-github.github.io/rpg007-github/MCAT-prep-medium-hard/" target="_blank" rel="noopener">MCAT Medium-Hard Practice</a></li>
         <li class="bio"><a href="https://rpg007-github.github.io/rpg007-github/MCAT-CARS-practice/" target="_blank" rel="noopener">MCAT CARS Practice</a></li>
-        <li class="bio"><a href="https://rpg007-github.github.io/rpg007-github/MCAT-CARS-drills/" target="_blank" rel="noopener">MCAT CARS Drills</a></li>
-        <li class="bio"><a href="https://rpg007-github.github.io/rpg007-github/MCAT-systems-learning-approach/" target="_blank" rel="noopener">MCAT Systems Approach</a></li>
-        <li class="skills"><a href="https://rpg007-github.github.io/rpg007-github/Finding-YOUR-Path/" target="_blank" rel="noopener">Finding YOUR Path (Career)</a></li>
+        <li class="bio"><a href="https://rpg007-github.github.io/rpg007-github/Finding-YOUR-Path/" target="_blank" rel="noopener">Finding YOUR Path — Career Planning</a></li>
       </ul>
     </div>
   </div>
 
   <div class="tip-box" role="note">
-    <strong>💡 Pro tip:</strong> Do not go in order for the sake of it. If you are struggling with a concept in a class right now, jump directly to that guide and use the flashcards and quiz to identify exactly where your gap is. These guides are designed for targeted, on-demand study.
-  </div>
-
-  <!-- WORKED EXAMPLE -->
-  <div class="sec-hd" style="margin-top:2.5rem">
-    <div class="sec-tag" style="color:var(--green)">Worked Example</div>
-    <h2>How to Use This Hub When You Are Overwhelmed</h2>
+    <strong>💡 Pro tip:</strong> Do not go in order for the sake of it. If you are struggling with a concept in a class right now, jump directly to that guide. These are designed for targeted, on-demand study — not linear completion.
   </div>
 
   <div class="worked">
-    <div class="worked-hd" aria-label="Worked example heading">✎ Worked Example — I have an exam tomorrow and I am lost. Where do I start?</div>
-    <div class="worked-prompt">You have an exam on Cell Biology in 24 hours. You have fallen behind on lectures and do not know where to start.</div>
-    <div class="step"><span class="sn" aria-hidden="true">1</span><span class="st"><strong>Triage first:</strong> Open the relevant guide (e.g., Cell Biology Part 1). Scan the table of contents. Identify the 3–4 topics your professor emphasized most. Do not try to learn everything.</span></div>
-    <div class="step"><span class="sn" aria-hidden="true">2</span><span class="st"><strong>Flashcards first:</strong> Run through the flashcards for your priority topics. This builds vocabulary fast. You cannot answer process questions about terms you cannot define.</span></div>
-    <div class="step"><span class="sn" aria-hidden="true">3</span><span class="st"><strong>Take the quiz:</strong> Every wrong answer tells you exactly where your gap is. Read the explanation for each wrong answer. Focus your reading time only on those gaps.</span></div>
-    <div class="step"><span class="sn" aria-hidden="true">4</span><span class="st"><strong>Write one short answer:</strong> Before sleeping, write out one explanation of a key topic in your own words, without looking at notes. If you can write it, you understand it.</span></div>
-    <div class="worked-ans">✓ In 2–3 hours you will have covered priority material using active recall, which is far more effective than re-reading.</div>
+    <div class="worked-hd">✎ Worked Example — I have an exam tomorrow and I am lost. Where do I start?</div>
+    <div class="worked-prompt">You have an exam on Cell Biology in 24 hours. You have fallen behind and do not know where to start.</div>
+    <div class="step"><span class="sn" aria-hidden="true">1</span><span class="st"><strong>Triage first:</strong> Open the relevant guide. Scan the topics. Identify the 3–4 your professor emphasized most. Do not try to learn everything.</span></div>
+    <div class="step"><span class="sn" aria-hidden="true">2</span><span class="st"><strong>Flashcards first:</strong> Run through the flashcards for your priority topics. You cannot answer process questions about terms you cannot define.</span></div>
+    <div class="step"><span class="sn" aria-hidden="true">3</span><span class="st"><strong>Take the quiz:</strong> Every wrong answer tells you exactly where your gap is. Read the explanation. Focus your remaining time only on those gaps.</span></div>
+    <div class="step"><span class="sn" aria-hidden="true">4</span><span class="st"><strong>Write one short answer:</strong> Before sleeping, write out one explanation in your own words without notes. If you can write it, you understand it.</span></div>
+    <div class="worked-ans">✓ In 2–3 hours you will have covered priority material using active recall — far more effective than re-reading.</div>
   </div>
-
 </section>
 
-<!-- ========== BIOLOGY ========== -->
+<!-- BIOLOGY -->
 <section class="guide-section" id="sec-bio" role="tabpanel" aria-labelledby="tab-bio">
-
   <div class="sec-hd">
     <div class="sec-tag" style="color:var(--teal)">Biology</div>
     <h2>Biology Study Guides</h2>
     <p>From introductory biology through advanced genetics, labs, microbiology, and biodiversity. Click any card to open the guide in a new tab.</p>
   </div>
-
-  <div class="tip-box" role="note"><strong>🌱 New to biology?</strong> Start with <strong>Biology Basics (Bio I)</strong>. It covers the vocabulary and foundational concepts that every other biology course builds on.</div>
+  <div class="tip-box" role="note"><strong>🌱 New to biology?</strong> Start with <strong>Biology Basics (Bio I)</strong>. It covers the vocabulary and foundational concepts every other biology course builds on.</div>
 
   <h3 class="sec-hd" style="margin-top:1.75rem;border:none;padding:0"><span style="font-family:'Crimson Pro',serif;font-size:1.2rem;font-weight:700">Introductory Biology</span> <span class="lv lv-intro">Intro Level</span></h3>
   <div class="card-grid">
-    <a href="https://rpg007-github.github.io/rpg007-github/Biology-basics/" target="_blank" rel="noopener" class="card bio" aria-label="Biology Basics — Bio I study guide, opens in new tab">
-      <h3>Biology Basics (Bio I)</h3>
-      <p>Scientific method, biological molecules, cell structure, energy metabolism, genetics overview, and evolution. Start here.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Biology-II/" target="_blank" rel="noopener" class="card bio" aria-label="Biology II — physiology, ecology, evolution, opens in new tab">
-      <h3>Biology II</h3>
-      <p>Physiology, ecology, evolution, population biology, and organismal diversity.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Biology-for-non-majors/" target="_blank" rel="noopener" class="card bio" aria-label="Biology for Non-Majors, opens in new tab">
-      <h3>Biology for Non-Majors</h3>
-      <p>Accessible overview of core biology concepts for students not in a biology degree program.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Biodiversity/" target="_blank" rel="noopener" class="card bio" aria-label="Biodiversity study guide, opens in new tab">
-      <h3>Biodiversity</h3>
-      <p>Classification, taxonomy, diversity of life across domains, and ecological relationships.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div>
-    </a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Biology-basics/" target="_blank" rel="noopener" class="card bio" aria-label="Biology Basics Bio I — opens in new tab"><h3>Biology Basics (Bio I)</h3><p>Scientific method, biological molecules, cell structure, energy metabolism, genetics overview, and evolution. Start here.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Biology-II/" target="_blank" rel="noopener" class="card bio" aria-label="Biology II — opens in new tab"><h3>Biology II</h3><p>Physiology, ecology, evolution, population biology, and organismal diversity.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Biology-for-non-majors/" target="_blank" rel="noopener" class="card bio" aria-label="Biology for Non-Majors — opens in new tab"><h3>Biology for Non-Majors</h3><p>Accessible overview of core biology for students not in a biology degree program.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Biodiversity/" target="_blank" rel="noopener" class="card bio" aria-label="Biodiversity — opens in new tab"><h3>Biodiversity</h3><p>Classification, taxonomy, diversity of life across domains, and ecological relationships.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div></a>
   </div>
 
   <h3 class="sec-hd" style="border:none;padding:0;margin-top:1.75rem"><span style="font-family:'Crimson Pro',serif;font-size:1.2rem;font-weight:700">Cell &amp; Molecular Biology</span> <span class="lv lv-core">Core Level</span></h3>
   <div class="card-grid">
-    <a href="https://rpg007-github.github.io/rpg007-github/Cell-Biology-basic/" target="_blank" rel="noopener" class="card bio" aria-label="Cell Biology Part 1, opens in new tab">
-      <h3>Cell Biology Part 1</h3>
-      <p>Cell structure and organelles, membrane structure, transport mechanisms, cell signaling, and the cell cycle.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Cell-Biology-basic-part-2/" target="_blank" rel="noopener" class="card bio" aria-label="Cell Biology Part 2, opens in new tab">
-      <h3>Cell Biology Part 2</h3>
-      <p>Enzymes, glycolysis, aerobic respiration, photosynthesis, cytoskeleton, and cellular movement.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/DNA-basics/" target="_blank" rel="noopener" class="card bio" aria-label="DNA Basics study guide, opens in new tab">
-      <h3>DNA Basics</h3>
-      <p>DNA structure, replication, transcription, translation, mutations, and the central dogma.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Water-molecule-fundamentals/" target="_blank" rel="noopener" class="card bio" aria-label="Water Molecule Fundamentals, opens in new tab">
-      <h3>Water Molecule Fundamentals</h3>
-      <p>Hydrogen bonding, properties of water, pH, acids/bases, and buffers — essential for biochemistry.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div>
-    </a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Cell-Biology-basic/" target="_blank" rel="noopener" class="card bio" aria-label="Cell Biology Part 1 — opens in new tab"><h3>Cell Biology Part 1</h3><p>Cell structure and organelles, membrane structure, transport mechanisms, cell signaling, and the cell cycle.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Cell-Biology-basic-part-2/" target="_blank" rel="noopener" class="card bio" aria-label="Cell Biology Part 2 — opens in new tab"><h3>Cell Biology Part 2</h3><p>Enzymes, glycolysis, aerobic respiration, photosynthesis, cytoskeleton, and cellular movement.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/DNA-basics/" target="_blank" rel="noopener" class="card bio" aria-label="DNA Basics — opens in new tab"><h3>DNA Basics</h3><p>DNA structure, replication, transcription, translation, mutations, and the central dogma.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Water-molecule-fundamentals/" target="_blank" rel="noopener" class="card bio" aria-label="Water Molecule Fundamentals — opens in new tab"><h3>Water Molecule Fundamentals</h3><p>Hydrogen bonding, properties of water, pH, acids/bases, and buffers — essential for biochemistry.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div></a>
   </div>
 
   <div class="worked">
     <div class="worked-hd">✎ Worked Example — Active vs. Passive Transport</div>
     <div class="worked-prompt">You keep mixing up simple diffusion, facilitated diffusion, and active transport on quizzes.</div>
-    <div class="step"><span class="sn" aria-hidden="true">1</span><span class="st"><strong>Ask one question first:</strong> Does the molecule move WITH its concentration gradient (high → low) or AGAINST it (low → high)?</span></div>
-    <div class="step"><span class="sn" aria-hidden="true">2</span><span class="st"><strong>With the gradient = passive (no ATP):</strong> Simple diffusion: small nonpolar molecules (O₂, CO₂) slip through the lipid bilayer. Facilitated diffusion: polar or charged molecules (glucose, ions) use a protein channel — still no ATP.</span></div>
-    <div class="step"><span class="sn" aria-hidden="true">3</span><span class="st"><strong>Against the gradient = active (needs ATP):</strong> The Na⁺/K⁺ ATPase pump pushes 3 Na⁺ out and 2 K⁺ in, against their gradients, to maintain the resting membrane potential.</span></div>
-    <div class="step"><span class="sn" aria-hidden="true">4</span><span class="st"><strong>Common mistake:</strong> Students say "facilitated diffusion uses energy because it uses a protein." It does not. Proteins are tools, not fuel. Direction relative to gradient determines energy cost.</span></div>
+    <div class="step"><span class="sn" aria-hidden="true">1</span><span class="st"><strong>Ask one question first:</strong> Does the molecule move WITH its concentration gradient (high→low) or AGAINST it (low→high)?</span></div>
+    <div class="step"><span class="sn" aria-hidden="true">2</span><span class="st"><strong>With the gradient = passive (no ATP):</strong> Simple diffusion — small nonpolar molecules slip through the lipid bilayer. Facilitated diffusion — polar or charged molecules use a protein channel. Still no ATP.</span></div>
+    <div class="step"><span class="sn" aria-hidden="true">3</span><span class="st"><strong>Against the gradient = active (needs ATP):</strong> The Na⁺/K⁺ ATPase pump pushes 3 Na⁺ out and 2 K⁺ in, against their gradients, to maintain resting membrane potential.</span></div>
+    <div class="step"><span class="sn" aria-hidden="true">4</span><span class="st"><strong>Common mistake:</strong> Students say "facilitated diffusion uses energy because it uses a protein." It does not. Direction relative to gradient determines energy cost — not whether a protein is involved.</span></div>
     <div class="worked-ans">✓ With gradient = passive (no ATP). Against gradient = active (ATP required). Facilitated diffusion is passive even though it uses a protein.</div>
   </div>
 
   <h3 class="sec-hd" style="border:none;padding:0;margin-top:1.75rem"><span style="font-family:'Crimson Pro',serif;font-size:1.2rem;font-weight:700">Genetics</span> <span class="lv lv-core">Core to Upper Division</span></h3>
   <div class="card-grid">
-    <a href="https://rpg007-github.github.io/rpg007-github/Genetics/" target="_blank" rel="noopener" class="card bio" aria-label="Genetics study guide, opens in new tab">
-      <h3>Genetics</h3>
-      <p>Mendelian genetics, pedigree analysis, chromosomal inheritance, gene expression, and population genetics.</p>
-      <div class="card-tags"><span class="tag tag-quiz">30 Questions</span><span class="tag tag-flash">58 Flashcards</span><span class="tag tag-sa">10 Short Answer</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Genetics-part-2/" target="_blank" rel="noopener" class="card bio" aria-label="Genetics Part 2 study guide, opens in new tab">
-      <h3>Genetics Part 2</h3>
-      <p>Gene regulation, epigenetics, genomics, and advanced inheritance patterns.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Genetics-advanced/" target="_blank" rel="noopener" class="card bio" aria-label="Advanced Genetics study guide, opens in new tab">
-      <h3>Advanced Genetics <span class="lv lv-upper">Upper Div</span></h3>
-      <p>Epigenetics, genomic architecture, quantitative genetics, and evolutionary genomics.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
-    </a>
-  </div>
-
-  <h3 class="sec-hd" style="border:none;padding:0;margin-top:1.75rem"><span style="font-family:'Crimson Pro',serif;font-size:1.2rem;font-weight:700">Microbiology &amp; Labs</span> <span class="lv lv-core">Core Level</span></h3>
-  <div class="card-grid">
-    <a href="https://rpg007-github.github.io/rpg007-github/Microbiology/" target="_blank" rel="noopener" class="card bio" aria-label="Microbiology study guide, opens in new tab">
-      <h3>Microbiology</h3>
-      <p>Bacteria, viruses, fungi, and protists — structure, growth, pathogenesis, and control.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Biology-lab-basics/" target="_blank" rel="noopener" class="card bio" aria-label="Biology Lab Basics study guide, opens in new tab">
-      <h3>Biology Lab Basics</h3>
-      <p>Measurement, safety, microscopy, solution prep, data recording, and basic statistics for the lab.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Biology-LAB/" target="_blank" rel="noopener" class="card bio" aria-label="Biology Lab study guide, opens in new tab">
-      <h3>Biology Lab</h3>
-      <p>Lab techniques, experimental design, data analysis, and lab report writing.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Bio-II-lab/" target="_blank" rel="noopener" class="card bio" aria-label="Biology II Lab study guide, opens in new tab">
-      <h3>Biology II Lab</h3>
-      <p>Advanced lab modules for second-semester biology, including physiology and ecology experiments.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div>
-    </a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Genetics/" target="_blank" rel="noopener" class="card bio" aria-label="Genetics — opens in new tab"><h3>Genetics</h3><p>Mendelian genetics, pedigree analysis, chromosomal inheritance, gene expression, and population genetics.</p><div class="card-tags"><span class="tag tag-quiz">30 Questions</span><span class="tag tag-flash">58 Flashcards</span><span class="tag tag-sa">10 Short Answer</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Genetics-part-2/" target="_blank" rel="noopener" class="card bio" aria-label="Genetics Part 2 — opens in new tab"><h3>Genetics Part 2</h3><p>Gene regulation, epigenetics, genomics, and advanced inheritance patterns.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Genetics-advanced/" target="_blank" rel="noopener" class="card bio" aria-label="Advanced Genetics — opens in new tab"><h3>Advanced Genetics <span class="lv lv-upper">Upper Div</span></h3><p>Epigenetics, genomic architecture, quantitative genetics, and evolutionary genomics.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div></a>
   </div>
 
   <div class="worked">
     <div class="worked-hd">✎ Worked Example — Dihybrid Cross</div>
     <div class="worked-prompt">Two pea plants heterozygous for seed color (Yy) and seed shape (Rr) are crossed. What fraction of offspring have yellow, round seeds?</div>
-    <div class="step"><span class="sn" aria-hidden="true">1</span><span class="st"><strong>Dominance:</strong> Yellow (Y) dominates green (y). Round (R) dominates wrinkled (r). Any genotype with at least one dominant allele shows the dominant phenotype.</span></div>
+    <div class="step"><span class="sn" aria-hidden="true">1</span><span class="st"><strong>Dominance:</strong> Yellow (Y) dominates green (y). Round (R) dominates wrinkled (r).</span></div>
     <div class="step"><span class="sn" aria-hidden="true">2</span><span class="st"><strong>Treat each gene independently (Law of Independent Assortment):</strong> Yy × Yy → 3/4 yellow. Rr × Rr → 3/4 round.</span></div>
     <div class="step"><span class="sn" aria-hidden="true">3</span><span class="st"><strong>Multiply:</strong> P(yellow AND round) = 3/4 × 3/4 = <strong>9/16</strong>. This is why the dihybrid ratio is 9:3:3:1.</span></div>
-    <div class="worked-ans">✓ 9/16 of offspring will show yellow, round seeds. Shortcut: solve each gene separately, then multiply — faster and less error-prone than a 16-box Punnett square.</div>
+    <div class="worked-ans">✓ 9/16 of offspring will show yellow, round seeds. Solve each gene separately, then multiply — faster and less error-prone than a 16-box Punnett square.</div>
   </div>
 
+  <h3 class="sec-hd" style="border:none;padding:0;margin-top:1.75rem"><span style="font-family:'Crimson Pro',serif;font-size:1.2rem;font-weight:700">Microbiology &amp; Labs</span> <span class="lv lv-core">Core Level</span></h3>
+  <div class="card-grid">
+    <a href="https://rpg007-github.github.io/rpg007-github/Microbiology/" target="_blank" rel="noopener" class="card bio" aria-label="Microbiology — opens in new tab"><h3>Microbiology</h3><p>Bacteria, viruses, fungi, and protists — structure, growth, pathogenesis, and control.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Biology-lab-basics/" target="_blank" rel="noopener" class="card bio" aria-label="Biology Lab Basics — opens in new tab"><h3>Biology Lab Basics</h3><p>Measurement, safety, microscopy, solution prep, data recording, and basic statistics for lab.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Biology-LAB/" target="_blank" rel="noopener" class="card bio" aria-label="Biology Lab — opens in new tab"><h3>Biology Lab</h3><p>Lab techniques, experimental design, data analysis, and lab report writing.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Bio-II-lab/" target="_blank" rel="noopener" class="card bio" aria-label="Biology II Lab — opens in new tab"><h3>Biology II Lab</h3><p>Advanced lab modules for second-semester biology, including physiology and ecology experiments.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div></a>
+  </div>
 </section>
 
-<!-- ========== CHEMISTRY ========== -->
+<!-- CHEMISTRY -->
 <section class="guide-section" id="sec-chem" role="tabpanel" aria-labelledby="tab-chem">
-
   <div class="sec-hd">
     <div class="sec-tag" style="color:var(--amber)">Chemistry</div>
     <h2>Chemistry Study Guides</h2>
     <p>General chemistry through organic chemistry and biochemistry. Chemistry is the language of biology — mastering it here pays dividends in every upper-division course.</p>
   </div>
-
   <div class="tip-box" role="note"><strong>⚗️ Struggling with chemistry?</strong> Start with <strong>General Chemistry I</strong> and the <strong>Molarity/Dilutions</strong> guide. These two cover the quantitative skills that trip up most biology students.</div>
-
   <div class="card-grid">
-    <a href="https://rpg007-github.github.io/rpg007-github/chemistry/" target="_blank" rel="noopener" class="card chem" aria-label="General Chemistry I study guide, opens in new tab">
-      <h3>General Chemistry I <span class="lv lv-intro">Intro</span></h3>
-      <p>Atomic structure, periodic trends, chemical bonding, reactions, and stoichiometry.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/General-Chemistry-II/" target="_blank" rel="noopener" class="card chem" aria-label="General Chemistry II study guide, opens in new tab">
-      <h3>General Chemistry II <span class="lv lv-core">Core</span></h3>
-      <p>Kinetics, chemical equilibrium, acid-base chemistry, thermodynamics, and electrochemistry.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Chemistry-for-non-majors/" target="_blank" rel="noopener" class="card chem" aria-label="Chemistry for Non-Majors study guide, opens in new tab">
-      <h3>Chemistry for Non-Majors</h3>
-      <p>Accessible chemistry overview for students not in a chemistry degree program.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Basic-Molarity-Osmolarity-Dilutions/" target="_blank" rel="noopener" class="card chem" aria-label="Molarity Osmolarity Dilutions study guide, opens in new tab">
-      <h3>Molarity, Osmolarity &amp; Dilutions</h3>
-      <p>Concentration calculations, solution preparation, osmolarity, and serial dilutions. Critical for lab work.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Organic-I/" target="_blank" rel="noopener" class="card chem" aria-label="Organic Chemistry I study guide, opens in new tab">
-      <h3>Organic Chemistry I <span class="lv lv-core">Core</span></h3>
-      <p>Functional groups, nomenclature, stereochemistry, and introductory reaction mechanisms.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Organic-II/" target="_blank" rel="noopener" class="card chem" aria-label="Organic Chemistry II study guide, opens in new tab">
-      <h3>Organic Chemistry II <span class="lv lv-upper">Upper Div</span></h3>
-      <p>Advanced reaction mechanisms, synthesis planning, spectroscopy, and carbonyl chemistry.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Biochemistry/" target="_blank" rel="noopener" class="card chem" aria-label="Biochemistry study guide, opens in new tab">
-      <h3>Biochemistry <span class="lv lv-upper">Upper Div</span></h3>
-      <p>Amino acids, proteins, enzymes, metabolic pathways, and molecular biology of macromolecules.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Science-Vocabular-Builder/" target="_blank" rel="noopener" class="card chem" aria-label="Science Vocabulary Builder, opens in new tab">
-      <h3>Science Vocabulary Builder</h3>
-      <p>Cross-disciplinary science term builder covering biology, chemistry, and physics vocabulary.</p>
-      <div class="card-tags"><span class="tag tag-flash">Flashcards</span><span class="tag tag-tool">Interactive</span></div>
-    </a>
+    <a href="https://rpg007-github.github.io/rpg007-github/chemistry/" target="_blank" rel="noopener" class="card chem" aria-label="General Chemistry I — opens in new tab"><h3>General Chemistry I <span class="lv lv-intro">Intro</span></h3><p>Atomic structure, periodic trends, chemical bonding, reactions, and stoichiometry.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/General-Chemistry-II/" target="_blank" rel="noopener" class="card chem" aria-label="General Chemistry II — opens in new tab"><h3>General Chemistry II <span class="lv lv-core">Core</span></h3><p>Kinetics, chemical equilibrium, acid-base chemistry, thermodynamics, and electrochemistry.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Chemistry-for-non-majors/" target="_blank" rel="noopener" class="card chem" aria-label="Chemistry for Non-Majors — opens in new tab"><h3>Chemistry for Non-Majors</h3><p>Accessible chemistry overview for students not in a chemistry degree program.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Basic-Molarity-Osmolarity-Dilutions/" target="_blank" rel="noopener" class="card chem" aria-label="Molarity Osmolarity Dilutions — opens in new tab"><h3>Molarity, Osmolarity &amp; Dilutions</h3><p>Concentration calculations, solution preparation, osmolarity, and serial dilutions. Critical for lab work.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Organic-I/" target="_blank" rel="noopener" class="card chem" aria-label="Organic Chemistry I — opens in new tab"><h3>Organic Chemistry I <span class="lv lv-core">Core</span></h3><p>Functional groups, nomenclature, stereochemistry, and introductory reaction mechanisms.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Organic-II/" target="_blank" rel="noopener" class="card chem" aria-label="Organic Chemistry II — opens in new tab"><h3>Organic Chemistry II <span class="lv lv-upper">Upper Div</span></h3><p>Advanced reaction mechanisms, synthesis planning, spectroscopy, and carbonyl chemistry.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Biochemistry/" target="_blank" rel="noopener" class="card chem" aria-label="Biochemistry — opens in new tab"><h3>Biochemistry <span class="lv lv-upper">Upper Div</span></h3><p>Amino acids, proteins, enzymes, metabolic pathways, and molecular biology of macromolecules.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Science-Vocabular-Builder/" target="_blank" rel="noopener" class="card chem" aria-label="Science Vocabulary Builder — opens in new tab"><h3>Science Vocabulary Builder</h3><p>Cross-disciplinary science term builder covering biology, chemistry, and physics vocabulary.</p><div class="card-tags"><span class="tag tag-flash">Flashcards</span><span class="tag tag-tool">Interactive</span></div></a>
   </div>
 
   <div class="worked">
@@ -543,275 +365,81 @@ nav.nav-bar{position:sticky;top:0;z-index:100;background:rgba(15,17,23,.94);back
     <div class="worked-prompt">You have a 1.0 M NaCl stock solution. How do you make 200 mL of a 0.25 M solution?</div>
     <div class="step"><span class="sn" aria-hidden="true">1</span><span class="st"><strong>Write the dilution equation:</strong> C₁V₁ = C₂V₂ where C = concentration, V = volume.</span></div>
     <div class="step"><span class="sn" aria-hidden="true">2</span><span class="st"><strong>Plug in what you know:</strong> C₁ = 1.0 M, V₁ = unknown, C₂ = 0.25 M, V₂ = 200 mL.</span></div>
-    <div class="step"><span class="sn" aria-hidden="true">3</span><span class="st"><strong>Solve for V₁:</strong> V₁ = (C₂ × V₂) / C₁ = (0.25 × 200) / 1.0 = <strong>50 mL</strong>.</span></div>
-    <div class="step"><span class="sn" aria-hidden="true">4</span><span class="st"><strong>Make the solution:</strong> Measure 50 mL of the 1.0 M stock. Transfer to a 200 mL volumetric flask. Add distilled water until the volume reaches exactly 200 mL. Mix.</span></div>
+    <div class="step"><span class="sn" aria-hidden="true">3</span><span class="st"><strong>Solve for V₁:</strong> V₁ = (0.25 × 200) / 1.0 = <strong>50 mL</strong>.</span></div>
+    <div class="step"><span class="sn" aria-hidden="true">4</span><span class="st"><strong>Make the solution:</strong> Measure 50 mL of stock. Transfer to a 200 mL volumetric flask. Add distilled water to exactly 200 mL. Mix.</span></div>
     <div class="worked-ans">✓ Take 50 mL of the 1.0 M stock and bring the total volume to 200 mL with water. This gives you 0.25 M NaCl.</div>
   </div>
-
 </section>
 
-<!-- ========== MATH & PHYSICS ========== -->
+<!-- MATH & PHYSICS -->
 <section class="guide-section" id="sec-math" role="tabpanel" aria-labelledby="tab-math">
-
   <div class="sec-hd">
     <div class="sec-tag" style="color:var(--purple)">Math &amp; Physics</div>
     <h2>Math &amp; Physics Study Guides</h2>
     <p>The quantitative foundation under all of biology and chemistry. If math anxiety is holding you back, start with Math Fluency and College Algebra before moving to Physics.</p>
   </div>
-
   <div class="card-grid">
-    <a href="https://rpg007-github.github.io/rpg007-github/Math-Fluency/" target="_blank" rel="noopener" class="card math" aria-label="Math Fluency study guide, opens in new tab">
-      <h3>Math Fluency <span class="lv lv-intro">Start Here</span></h3>
-      <p>Arithmetic, fractions, percentages, ratios, scientific notation, and unit conversions. No calculus required.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-tool">Practice Tools</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/College-Algebra/" target="_blank" rel="noopener" class="card math" aria-label="College Algebra study guide, opens in new tab">
-      <h3>College Algebra <span class="lv lv-intro">Intro</span></h3>
-      <p>Functions, graphs, polynomials, exponentials, and logarithms. Critical before Gen Chem and Physics.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Trigonometry/" target="_blank" rel="noopener" class="card math" aria-label="Trigonometry study guide, opens in new tab">
-      <h3>Trigonometry <span class="lv lv-core">Core</span></h3>
-      <p>Angles, trig functions, unit circle, identities, and applications in physics and biology.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Physics-I-basics/" target="_blank" rel="noopener" class="card physics" aria-label="Physics I Basics study guide, opens in new tab">
-      <h3>Physics I Basics <span class="lv lv-core">Core</span></h3>
-      <p>Mechanics, energy, momentum, forces, and waves. Focuses on concepts directly relevant to MCAT physics.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Stats-Biostats/" target="_blank" rel="noopener" class="card math" aria-label="Statistics and Biostatistics study guide, opens in new tab">
-      <h3>Statistics &amp; Biostatistics <span class="lv lv-core">Core</span></h3>
-      <p>Descriptive stats, hypothesis testing, t-tests, ANOVA, chi-square, confidence intervals, and diagnostic testing. Three reading levels.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span><span class="tag tag-new">3 Levels</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/quiz-tool-biology-chemistry/" target="_blank" rel="noopener" class="card math" aria-label="Quiz Tool for Biology and Chemistry, opens in new tab">
-      <h3>Quiz Tool — Biology &amp; Chemistry</h3>
-      <p>Interactive practice tool covering cross-topic biology and chemistry questions in one place.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-tool">Interactive</span></div>
-    </a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Math-Fluency/" target="_blank" rel="noopener" class="card math" aria-label="Math Fluency — opens in new tab"><h3>Math Fluency <span class="lv lv-intro">Start Here</span></h3><p>Arithmetic, fractions, percentages, ratios, scientific notation, and unit conversions. No calculus required.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-tool">Practice Tools</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/College-Algebra/" target="_blank" rel="noopener" class="card math" aria-label="College Algebra — opens in new tab"><h3>College Algebra <span class="lv lv-intro">Intro</span></h3><p>Functions, graphs, polynomials, exponentials, and logarithms. Critical before Gen Chem and Physics.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Trigonometry/" target="_blank" rel="noopener" class="card math" aria-label="Trigonometry — opens in new tab"><h3>Trigonometry <span class="lv lv-core">Core</span></h3><p>Angles, trig functions, unit circle, identities, and applications in physics and biology.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Physics-I-basics/" target="_blank" rel="noopener" class="card physics" aria-label="Physics I Basics — opens in new tab"><h3>Physics I Basics <span class="lv lv-core">Core</span></h3><p>Mechanics, energy, momentum, forces, and waves. Focuses on concepts directly relevant to MCAT physics.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Stats-Biostats/" target="_blank" rel="noopener" class="card math" aria-label="Statistics and Biostatistics — opens in new tab"><h3>Statistics &amp; Biostatistics <span class="lv lv-core">Core</span></h3><p>Descriptive stats, hypothesis testing, t-tests, ANOVA, chi-square, and diagnostic testing. Three reading levels.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span><span class="tag tag-new">3 Levels</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/quiz-tool-biology-chemistry/" target="_blank" rel="noopener" class="card math" aria-label="Quiz Tool Biology and Chemistry — opens in new tab"><h3>Quiz Tool — Biology &amp; Chemistry</h3><p>Interactive practice covering cross-topic biology and chemistry questions in one place.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-tool">Interactive</span></div></a>
   </div>
-
 </section>
 
-<!-- ========== MCAT ========== -->
+<!-- MCAT -->
 <section class="guide-section" id="sec-mcat" role="tabpanel" aria-labelledby="tab-mcat">
-
   <div class="sec-hd">
     <div class="sec-tag" style="color:var(--pink)">MCAT Preparation</div>
     <h2>MCAT Prep Guides</h2>
-    <p>All MCAT resources in one place. These guides are best used after completing most of your pre-med coursework. If you are a freshman, bookmark this tab for later — and visit the MCAT Hub for a full overview.</p>
+    <p>Best used after completing most of your pre-med coursework. For a full MCAT study plan with timelines and strategy, visit the dedicated MCAT Hub.</p>
   </div>
 
   <div class="info-box" role="note">
-    <strong>🎯 MCAT Hub:</strong> For a full MCAT overview with adaptive practice and a study timeline, visit the dedicated
-    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-HUB/" target="_blank" rel="noopener" style="color:var(--teal)">MCAT Prep Hub →</a>
+    <strong>🎯 Want a full MCAT study plan?</strong> The dedicated <a href="https://rpg007-github.github.io/rpg007-github/MCAT-HUB/" target="_blank" rel="noopener">MCAT Prep Hub →</a> has adaptive practice, CARS drills, systems learning, and a recommended study timeline by weeks-to-exam.
   </div>
 
   <div class="card-grid">
-    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-Preparation/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Preparation comprehensive guide, opens in new tab">
-      <h3>MCAT Preparation</h3>
-      <p>Comprehensive content review and strategy for all four MCAT sections.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-prep-adaptive/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Adaptive Practice, opens in new tab">
-      <h3>MCAT Adaptive Practice</h3>
-      <p>Questions that adapt to your performance level. Focuses time on your weakest areas.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Adaptive Quiz</span><span class="tag tag-tool">Interactive</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-prep-medium-hard/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Medium to Hard Practice Questions, opens in new tab">
-      <h3>MCAT Medium–Hard Practice</h3>
-      <p>Higher-difficulty MCAT-style questions for students aiming for 511+.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-sa">Short Answer</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-disease-pathways/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Disease Pathways study guide, opens in new tab">
-      <h3>MCAT Disease Pathways</h3>
-      <p>High-yield disease mechanisms: pathophysiology, biochemical basis, and clinical connections.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-Psychology/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Psychology and Sociology study guide, opens in new tab">
-      <h3>MCAT Psychology &amp; Sociology</h3>
-      <p>Psych/Soc section review: behavior, cognition, development, social structures, and research methods.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-CARS-practice/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT CARS Practice, opens in new tab">
-      <h3>MCAT CARS Practice</h3>
-      <p>Critical Analysis and Reasoning Skills passages with detailed explanations for every answer choice.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Passages</span><span class="tag tag-tool">Timed Practice</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-CARS-drills/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT CARS Drills, opens in new tab">
-      <h3>MCAT CARS Drills</h3>
-      <p>Targeted CARS skill drills for tone, inference, argument structure, and vocabulary in context.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Drills</span><span class="tag tag-tool">Interactive</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-systems-learning-approach/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Systems Learning Approach, opens in new tab">
-      <h3>MCAT Systems Learning</h3>
-      <p>Organ systems approach to MCAT biology: cardiovascular, respiratory, renal, and more in integrated context.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div>
-    </a>
+    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-Preparation/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Preparation — opens in new tab"><h3>MCAT Preparation</h3><p>Comprehensive content review and strategy for all four MCAT sections.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-prep-adaptive/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Adaptive Practice — opens in new tab"><h3>MCAT Adaptive Practice</h3><p>Questions that adapt to your performance. Focuses time on your weakest areas.</p><div class="card-tags"><span class="tag tag-quiz">Adaptive Quiz</span><span class="tag tag-tool">Interactive</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-prep-medium-hard/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Medium Hard Practice — opens in new tab"><h3>MCAT Medium–Hard Practice</h3><p>Higher-difficulty MCAT-style questions for students aiming for 511+.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-sa">Short Answer</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-disease-pathways/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Disease Pathways — opens in new tab"><h3>MCAT Disease Pathways</h3><p>High-yield disease mechanisms: pathophysiology, biochemical basis, and clinical connections.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-Psychology/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Psychology and Sociology — opens in new tab"><h3>MCAT Psychology &amp; Sociology</h3><p>Psych/Soc section review: behavior, cognition, development, social structures, and research methods.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Short Answer</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-CARS-practice/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT CARS Practice — opens in new tab"><h3>MCAT CARS Practice</h3><p>Critical Analysis and Reasoning Skills passages with detailed explanations for every answer choice.</p><div class="card-tags"><span class="tag tag-quiz">Passages</span><span class="tag tag-tool">Timed Practice</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-CARS-drills/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT CARS Drills — opens in new tab"><h3>MCAT CARS Drills</h3><p>Targeted CARS skill drills for tone, inference, argument structure, and vocabulary in context.</p><div class="card-tags"><span class="tag tag-quiz">Drills</span><span class="tag tag-tool">Interactive</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-systems-learning-approach/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Systems Learning — opens in new tab"><h3>MCAT Systems Learning</h3><p>Organ systems approach to MCAT biology: cardiovascular, respiratory, renal, and more in integrated context.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div></a>
+    <a href="https://rpg007-github.github.io/rpg007-github/Finding-YOUR-Path/" target="_blank" rel="noopener" class="card career" aria-label="Finding YOUR Path career planning — opens in new tab"><h3>Finding YOUR Path — MD, DO, PA &amp; Grad School Planning</h3><p>Pre-med and professional school planning guide. Application timelines, GPA and MCAT benchmarks, clinical hours, and research experience.</p><div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Career Tools</span></div></a>
   </div>
 
   <div class="worked">
     <div class="worked-hd">✎ Worked Example — What GPA and MCAT Do I Actually Need for Medical School?</div>
-    <div class="worked-prompt">You are a freshman biology major who wants to become a physician. You have heard scary things about GPA cutoffs and MCAT scores. What are realistic targets?</div>
+    <div class="worked-prompt">You are a freshman biology major who wants to become a physician. What are realistic targets?</div>
     <div class="step"><span class="sn" aria-hidden="true">1</span><span class="st"><strong>Know the real numbers:</strong> For MD programs, the median accepted applicant has roughly a 3.7–3.8 GPA and a 511–512 MCAT (out of 528). DO programs typically average around 3.5 GPA and 503–505 MCAT — still highly competitive.</span></div>
-    <div class="step"><span class="sn" aria-hidden="true">2</span><span class="st"><strong>GPA trajectory matters:</strong> Admissions committees look at trends. A 3.5 with a strong upward trend is often evaluated more favorably than a flat 3.6 with no growth.</span></div>
-    <div class="step"><span class="sn" aria-hidden="true">3</span><span class="st"><strong>MCAT timing:</strong> Most students take the MCAT the spring of junior year. Serious prep begins the fall of junior year at the latest. The MCAT tests Gen Chem, Organic Chem, Bio, Biochemistry, Physics, Psychology, and Sociology — all of which you are building now.</span></div>
-    <div class="step"><span class="sn" aria-hidden="true">4</span><span class="st"><strong>Grades are not enough:</strong> Clinical experience, research, volunteering, shadowing, and strong letters of recommendation are all required. Start building your application holistically from day one.</span></div>
+    <div class="step"><span class="sn" aria-hidden="true">2</span><span class="st"><strong>GPA trajectory matters:</strong> A 3.5 with a strong upward trend is often evaluated more favorably than a flat 3.6 with no growth.</span></div>
+    <div class="step"><span class="sn" aria-hidden="true">3</span><span class="st"><strong>MCAT timing:</strong> Most students take the MCAT the spring of junior year. Serious prep typically begins the fall of junior year at the latest.</span></div>
+    <div class="step"><span class="sn" aria-hidden="true">4</span><span class="st"><strong>Grades are not enough:</strong> Clinical experience, research, volunteering, shadowing, and strong letters of recommendation are all required. Start building holistically from day one.</span></div>
     <div class="worked-ans">✓ Target: ~3.7+ GPA and ~511+ MCAT for MD programs. ~3.5+ GPA and ~505+ for DO programs. Start building the full application from freshman year.</div>
   </div>
-
-</section>
-
-<!-- ========== STUDENT SKILLS ========== -->
-<section class="guide-section" id="sec-skills" role="tabpanel" aria-labelledby="tab-skills">
-
-  <div class="sec-hd">
-    <div class="sec-tag" style="color:var(--green)">Student Success</div>
-    <h2>Student Skills &amp; Career Planning</h2>
-    <p>Content knowledge gets you to the test. These skills determine your grade. Use them throughout your degree, not just when you are struggling.</p>
-  </div>
-
-  <div class="tip-box" role="note"><strong>⭐ Underrated:</strong> Students who use active recall and spaced repetition consistently outperform those who study longer but passively. The <strong>Getting Better</strong> guide covers the science of studying and why it works.</div>
-
-  <div class="card-grid">
-    <a href="https://rpg007-github.github.io/rpg007-github/Finding-your-way-in-College/" target="_blank" rel="noopener" class="card skills" aria-label="Finding Your Way in College guide, opens in new tab">
-      <h3>Finding Your Way in College</h3>
-      <p>Orientation to college life, time management, academic expectations, and how to get help before you are failing.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Reflection</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Getting-better/" target="_blank" rel="noopener" class="card skills" aria-label="Getting Better — study skills and college success, opens in new tab">
-      <h3>Getting Better</h3>
-      <p>Evidence-based study skills: active recall, spaced repetition, managing anxiety, social confidence, and digital wellness.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Reflective Writing</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Note-Taking/" target="_blank" rel="noopener" class="card skills" aria-label="Note-Taking Strategies, opens in new tab">
-      <h3>Note-Taking Strategies</h3>
-      <p>Cornell method, concept mapping, and evidence-based techniques for science lectures.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Finding-YOUR-Path/" target="_blank" rel="noopener" class="card career" aria-label="Finding YOUR Path — career and graduate school planning, opens in new tab">
-      <h3>Finding YOUR Path</h3>
-      <p>Pre-med, pre-vet, research, grad school, and health professions career planning. Build your timeline from freshman year.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span><span class="tag tag-sa">Career Tools</span></div>
-    </a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Home-Economics/" target="_blank" rel="noopener" class="card skills" aria-label="Home Economics — practical life skills, opens in new tab">
-      <h3>Home Economics &amp; Life Skills</h3>
-      <p>Budgeting, nutrition basics, cooking, time management, and practical adulting for college students.</p>
-      <div class="card-tags"><span class="tag tag-quiz">Quiz</span><span class="tag tag-flash">Flashcards</span></div>
-    </a>
-  </div>
-
-  <div class="worked">
-    <div class="worked-hd">✎ Worked Example — I keep failing quizzes even though I re-read my notes. Why?</div>
-    <div class="worked-prompt">You spend hours re-reading notes and the textbook. Your quiz scores are not improving. You feel like you understand the material but blank on tests.</div>
-    <div class="step"><span class="sn" aria-hidden="true">1</span><span class="st"><strong>Recognize the illusion of fluency:</strong> Re-reading creates a feeling of familiarity. Familiarity is not the same as being able to retrieve information under pressure. This is the most common study trap in college biology.</span></div>
-    <div class="step"><span class="sn" aria-hidden="true">2</span><span class="st"><strong>Switch to active recall:</strong> Close your notes. Write down everything you remember about a topic on a blank page. Then check what you missed. Retrieval practice strengthens memory far more than re-reading.</span></div>
-    <div class="step"><span class="sn" aria-hidden="true">3</span><span class="st"><strong>Use these guides differently:</strong> Start with the quiz or short answer — before reading the content. Struggle with the question first, then read the explanation. This "desirable difficulty" makes the learning stick.</span></div>
-    <div class="step"><span class="sn" aria-hidden="true">4</span><span class="st"><strong>Space it out:</strong> Studying for 30 minutes on five different days beats studying for 2.5 hours the night before the exam. Use spaced repetition, especially for flashcards.</span></div>
-    <div class="worked-ans">✓ Switch from passive re-reading to active retrieval. Students who make this change typically see significant improvement in 2–3 weeks.</div>
-  </div>
-
-</section>
-
-<!-- ========== ALL GUIDES ========== -->
-<section class="guide-section" id="sec-all" role="tabpanel" aria-labelledby="tab-all">
-
-  <div class="sec-hd">
-    <div class="sec-tag" style="color:var(--teal)">Complete Index</div>
-    <h2>All Study Guides — Complete List</h2>
-    <p>Every guide in one place. Use <kbd>Ctrl+F</kbd> (or <kbd>Cmd+F</kbd> on Mac) to search for a specific topic.</p>
-  </div>
-
-  <h3 style="font-family:'Crimson Pro',serif;font-size:1.1rem;font-weight:700;margin:1.5rem 0 .75rem;color:var(--teal)">🧬 Biology</h3>
-  <div class="card-grid">
-    <a href="https://rpg007-github.github.io/rpg007-github/Biology-basics/" target="_blank" rel="noopener" class="card bio" aria-label="Biology Basics Bio I"><h3>Biology Basics (Bio I)</h3><p>Intro biology for majors.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Biology-II/" target="_blank" rel="noopener" class="card bio" aria-label="Biology II"><h3>Biology II</h3><p>Physiology, ecology, evolution, diversity.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Biology-for-non-majors/" target="_blank" rel="noopener" class="card bio" aria-label="Biology for Non-Majors"><h3>Biology for Non-Majors</h3><p>Accessible core biology overview.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Biology-LAB/" target="_blank" rel="noopener" class="card bio" aria-label="Biology Lab"><h3>Biology Lab</h3><p>Lab techniques and data analysis.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Biology-lab-basics/" target="_blank" rel="noopener" class="card bio" aria-label="Biology Lab Basics"><h3>Biology Lab Basics</h3><p>Fundamental lab skills and safety.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Bio-II-lab/" target="_blank" rel="noopener" class="card bio" aria-label="Biology II Lab"><h3>Biology II Lab</h3><p>Advanced lab modules.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Cell-Biology-basic/" target="_blank" rel="noopener" class="card bio" aria-label="Cell Biology Part 1"><h3>Cell Biology Part 1</h3><p>Structure, membranes, transport, signaling.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Cell-Biology-basic-part-2/" target="_blank" rel="noopener" class="card bio" aria-label="Cell Biology Part 2"><h3>Cell Biology Part 2</h3><p>Enzymes, metabolism, cytoskeleton.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/DNA-basics/" target="_blank" rel="noopener" class="card bio" aria-label="DNA Basics"><h3>DNA Basics</h3><p>DNA structure, replication, central dogma.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Genetics/" target="_blank" rel="noopener" class="card bio" aria-label="Genetics"><h3>Genetics</h3><p>Mendelian through population genetics.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Genetics-part-2/" target="_blank" rel="noopener" class="card bio" aria-label="Genetics Part 2"><h3>Genetics Part 2</h3><p>Regulation, epigenetics, genomics.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Genetics-advanced/" target="_blank" rel="noopener" class="card bio" aria-label="Advanced Genetics"><h3>Advanced Genetics</h3><p>Epigenetics, quantitative genetics.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Microbiology/" target="_blank" rel="noopener" class="card bio" aria-label="Microbiology"><h3>Microbiology</h3><p>Bacteria, viruses, fungi, pathogenesis.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Biodiversity/" target="_blank" rel="noopener" class="card bio" aria-label="Biodiversity"><h3>Biodiversity</h3><p>Classification, taxonomy, ecology.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Water-molecule-fundamentals/" target="_blank" rel="noopener" class="card bio" aria-label="Water Molecule Fundamentals"><h3>Water Fundamentals</h3><p>Hydrogen bonding, pH, buffers.</p></a>
-  </div>
-
-  <h3 style="font-family:'Crimson Pro',serif;font-size:1.1rem;font-weight:700;margin:1.5rem 0 .75rem;color:var(--amber)">⚗️ Chemistry</h3>
-  <div class="card-grid">
-    <a href="https://rpg007-github.github.io/rpg007-github/chemistry/" target="_blank" rel="noopener" class="card chem" aria-label="General Chemistry I"><h3>General Chemistry I</h3><p>Atoms, bonding, reactions, stoichiometry.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/General-Chemistry-II/" target="_blank" rel="noopener" class="card chem" aria-label="General Chemistry II"><h3>General Chemistry II</h3><p>Kinetics, equilibrium, electrochemistry.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Chemistry-for-non-majors/" target="_blank" rel="noopener" class="card chem" aria-label="Chemistry for Non-Majors"><h3>Chemistry for Non-Majors</h3><p>Accessible chemistry overview.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Basic-Molarity-Osmolarity-Dilutions/" target="_blank" rel="noopener" class="card chem" aria-label="Molarity Osmolarity Dilutions"><h3>Molarity, Osmolarity &amp; Dilutions</h3><p>Concentration and solution calculations.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Organic-I/" target="_blank" rel="noopener" class="card chem" aria-label="Organic Chemistry I"><h3>Organic Chemistry I</h3><p>Functional groups, mechanisms intro.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Organic-II/" target="_blank" rel="noopener" class="card chem" aria-label="Organic Chemistry II"><h3>Organic Chemistry II</h3><p>Advanced mechanisms and synthesis.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Biochemistry/" target="_blank" rel="noopener" class="card chem" aria-label="Biochemistry"><h3>Biochemistry</h3><p>Proteins, enzymes, metabolic pathways.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Science-Vocabular-Builder/" target="_blank" rel="noopener" class="card chem" aria-label="Science Vocabulary Builder"><h3>Science Vocabulary Builder</h3><p>Cross-discipline science term builder.</p></a>
-  </div>
-
-  <h3 style="font-family:'Crimson Pro',serif;font-size:1.1rem;font-weight:700;margin:1.5rem 0 .75rem;color:var(--purple)">📐 Math &amp; Physics</h3>
-  <div class="card-grid">
-    <a href="https://rpg007-github.github.io/rpg007-github/Math-Fluency/" target="_blank" rel="noopener" class="card math" aria-label="Math Fluency"><h3>Math Fluency</h3><p>Arithmetic, fractions, scientific notation.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/College-Algebra/" target="_blank" rel="noopener" class="card math" aria-label="College Algebra"><h3>College Algebra</h3><p>Functions, exponentials, logarithms.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Trigonometry/" target="_blank" rel="noopener" class="card math" aria-label="Trigonometry"><h3>Trigonometry</h3><p>Angles, trig functions, unit circle.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Physics-I-basics/" target="_blank" rel="noopener" class="card physics" aria-label="Physics I Basics"><h3>Physics I Basics</h3><p>Mechanics, energy, waves.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Stats-Biostats/" target="_blank" rel="noopener" class="card math" aria-label="Statistics and Biostatistics"><h3>Statistics &amp; Biostatistics</h3><p>Hypothesis testing, ANOVA, diagnostics.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/quiz-tool-biology-chemistry/" target="_blank" rel="noopener" class="card math" aria-label="Quiz Tool Biology and Chemistry"><h3>Quiz Tool — Bio &amp; Chem</h3><p>Cross-topic interactive practice tool.</p></a>
-  </div>
-
-  <h3 style="font-family:'Crimson Pro',serif;font-size:1.1rem;font-weight:700;margin:1.5rem 0 .75rem;color:var(--pink)">🎯 MCAT Prep</h3>
-  <div class="card-grid">
-    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-HUB/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Hub"><h3>MCAT Hub</h3><p>Full MCAT overview and study plan.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-Preparation/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Preparation"><h3>MCAT Preparation</h3><p>Comprehensive content review.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-prep-adaptive/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Adaptive Practice"><h3>MCAT Adaptive Practice</h3><p>Questions that adapt to your level.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-prep-medium-hard/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Medium Hard Practice"><h3>MCAT Medium–Hard</h3><p>For students aiming for 511+.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-disease-pathways/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Disease Pathways"><h3>MCAT Disease Pathways</h3><p>High-yield disease mechanisms.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-Psychology/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Psychology and Sociology"><h3>MCAT Psych &amp; Sociology</h3><p>Behavior, cognition, social structures.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-CARS-practice/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT CARS Practice"><h3>MCAT CARS Practice</h3><p>Full passages with explanations.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-CARS-drills/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT CARS Drills"><h3>MCAT CARS Drills</h3><p>Targeted CARS skill drills.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/MCAT-systems-learning-approach/" target="_blank" rel="noopener" class="card mcat" aria-label="MCAT Systems Learning Approach"><h3>MCAT Systems Learning</h3><p>Organ systems integrated approach.</p></a>
-  </div>
-
-  <h3 style="font-family:'Crimson Pro',serif;font-size:1.1rem;font-weight:700;margin:1.5rem 0 .75rem;color:var(--green)">⭐ Student Skills &amp; Career</h3>
-  <div class="card-grid">
-    <a href="https://rpg007-github.github.io/rpg007-github/Finding-your-way-in-College/" target="_blank" rel="noopener" class="card skills" aria-label="Finding Your Way in College"><h3>Finding Your Way in College</h3><p>Time management and academic success.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Getting-better/" target="_blank" rel="noopener" class="card skills" aria-label="Getting Better study skills"><h3>Getting Better</h3><p>Evidence-based study skills and wellness.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Note-Taking/" target="_blank" rel="noopener" class="card skills" aria-label="Note-Taking Strategies"><h3>Note-Taking Strategies</h3><p>Cornell method and concept mapping.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Finding-YOUR-Path/" target="_blank" rel="noopener" class="card career" aria-label="Finding YOUR Path career planning"><h3>Finding YOUR Path</h3><p>Career and professional school planning.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Home-Economics/" target="_blank" rel="noopener" class="card skills" aria-label="Home Economics and Life Skills"><h3>Home Economics &amp; Life Skills</h3><p>Budgeting, nutrition, practical adulting.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/College-Success-Hub/" target="_blank" rel="noopener" class="card skills" aria-label="College Success Hub"><h3>College Success Hub</h3><p>Full college success resource hub.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Student-HUB/" target="_blank" rel="noopener" class="card skills" aria-label="Student Hub"><h3>Student Hub</h3><p>General study hub for all students.</p></a>
-    <a href="https://rpg007-github.github.io/rpg007-github/Biology-Major-and-MCAT-prep-HUB/" target="_blank" rel="noopener" class="card bio" aria-label="Biology Major and MCAT Prep Hub"><h3>Biology Major &amp; MCAT Hub</h3><p>Combined biology and MCAT hub.</p></a>
-  </div>
-
 </section>
 
 <!-- FULL DISCLAIMER -->
 <div class="full-disclaimer" id="full-disclaimer" role="note" aria-labelledby="disclaimer-heading">
   <h3 id="disclaimer-heading">⚠ Important Disclaimer — Please Read</h3>
-  <p>These study resources are provided <strong>free of charge for educational and supplemental study purposes only.</strong> They are intended as study aids and should <strong>not</strong> be used as a substitute for your course textbooks, official lecture materials, or the guidance of your instructors.</p>
-  <p>While every effort has been made to ensure accuracy, this content may contain errors, omissions, or information that is out of date. Science is constantly evolving, and material accurate at the time of writing may no longer reflect current understanding. <strong>Always verify important facts, formulas, and concepts against your official course materials.</strong></p>
-  <p>No guarantees are made regarding the completeness, accuracy, or reliability of any information presented. Use at your own discretion. If you spot an error, we welcome corrections.</p>
-  <p>These materials are <strong>not affiliated with, endorsed by, or officially connected to any university, college, testing organization, or textbook publisher.</strong> All content represents the independent work and ideas of the author.</p>
-  <p>This resource is provided "as is" without warranty of any kind, express or implied. The author assumes no liability for any errors or for actions taken based on the information provided here.</p>
+  <p>These study resources are provided <strong>free of charge for educational and supplemental study purposes only.</strong> They are not a substitute for your course textbooks, official lecture materials, or the guidance of your instructors.</p>
+  <p>While every effort has been made to ensure accuracy, this content may contain errors or information that is out of date. Science is constantly evolving. <strong>Always verify important facts, formulas, and concepts against your official course materials.</strong></p>
+  <p>No guarantees are made regarding completeness, accuracy, or reliability. Use at your own discretion.</p>
+  <p>These materials are <strong>not affiliated with, endorsed by, or officially connected to any university, college, testing organization, or textbook publisher.</strong> All content represents the independent work of the author.</p>
 </div>
 
 </main>
 
 <footer class="footer" role="contentinfo">
-  <p>Foundations: Closing the Gap Series &mdash; Free study resources for every student.</p>
+  <p>Foundations: Closing the Gap Series &mdash; Free study resources for biology majors and pre-health students.</p>
   <p style="margin-top:.35rem">Not affiliated with any university, testing organization, or publisher. Supplemental use only.</p>
 </footer>
 
 <script>
-/* ── TAB NAVIGATION ── */
-const tabs = document.querySelectorAll('.nav-btn');
-
 function show(id, btn) {
   document.querySelectorAll('.guide-section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => {
@@ -830,8 +458,6 @@ function show(id, btn) {
   if (nav) window.scrollTo({ top: nav.getBoundingClientRect().top + window.pageYOffset - 4, behavior: 'smooth' });
   document.getElementById('main-content').focus();
 }
-
-/* ── ARROW KEY NAV ON TAB BAR ── */
 document.querySelector('nav.nav-bar').addEventListener('keydown', e => {
   const btns = [...document.querySelectorAll('.nav-btn')];
   const idx = btns.indexOf(document.activeElement);
